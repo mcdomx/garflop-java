@@ -13,6 +13,7 @@ import org.jdom.JDOMException;
 import org.jdom.filter.ElementFilter;
 import org.jdom.input.SAXBuilder;
 
+
 /**
  * Hello world!
  *
@@ -27,37 +28,68 @@ public class Main {
     try {
         // Create a document from a file
         File inputFile = new File(args[0]);
+        SAXBuilder s = new SAXBuilder();
+
         SAXBuilder saxBuilder = new SAXBuilder();
         Document document = saxBuilder.build(inputFile);
         Element rootElement = document.getRootElement();
-        Iterator<Element> elements = rootElement.getDescendants(new ElementFilter("trkpt"));
+        Iterator<Element> trkpts = rootElement.getDescendants(new ElementFilter("trkpt"));
 
 
         HashMap<String, Double> prev_point = new HashMap();
         HashMap<String, Double> cur_point = new HashMap();
+        Double prev_ele = 0.0;
+        Double cur_ele = 0.0;
+
         Double ttlDistance = 0.0;
+        Double ttlClimb = 0.0;
+        Double ttlDescent = 0.0;
 
-        while (elements.hasNext()) {
-            List<Attribute> point = elements.next().getAttributes();
 
+        while (trkpts.hasNext()) {
+
+            Element trkpt = trkpts.next();
+
+            List<Attribute> point = trkpt.getAttributes();
+            Element elevation = trkpt.getChild("ele", rootElement.getNamespace());
+
+            // ensure you have a lat lon element and only get data if you do...
             if (    (point.get(0).getName() == "lat" && point.get(1).getName() == "lon") ||
                     (point.get(0).getName() == "lon" && point.get(1).getName() == "lat")    )
                 {
+
+                    //Get distance between points
                     cur_point.put(point.get(0).getName(), Double.parseDouble(point.get(0).getValue()));
                     cur_point.put(point.get(1).getName(), Double.parseDouble(point.get(1).getValue()));
 
-                    //If prev point has a value, measure the distance between points
+                    //Get elevation of current point
+                    cur_ele = Double.parseDouble(elevation.getValue());
+
+                    //Don't accumulate values if this is the first point
                     if ( !prev_point.keySet().isEmpty() ) {
                         ttlDistance += dist(prev_point, cur_point);
+
+                        if (cur_ele > prev_ele ) {
+                            ttlClimb += cur_ele - prev_ele;
+                        } else {
+                            ttlDescent += prev_ele - cur_ele;
+                        }
                     }
 
                     prev_point.put("lat", cur_point.get("lat"));
                     prev_point.put("lon", cur_point.get("lon"));
+                    prev_ele = cur_ele.doubleValue();
+
+                    //Accumulate elevation between points
+
+
 
                 }
         } // end while()
 
-        System.out.println(ttlDistance);
+        System.out.println("Total Distance: " + (double)Math.round(ttlDistance * 10d) / 10d);
+        System.out.println("Total Climb: " + (double)Math.round(ttlClimb * 10d) / 10d);
+        System.out.println("Total Descent: " + (double)Math.round(ttlDescent * 10d) / 10d);
 
 
     } catch(JDOMException e) {

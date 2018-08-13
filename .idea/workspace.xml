@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c172f4d4-eff7-450e-9224-d1225c1b67df" name="Default Changelist" comment="">
+    <list default="true" id="2262833d-21ce-4373-8250-cd069a8c38f8" name="Default Changelist" comment="added elevation accumulation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/garflop_java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/garflop_java.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/garflop_java-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/garflop_java-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/garflop_java-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/garflop/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/garflop/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/garflop/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/garflop/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,59 +18,69 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/garflop_java$garflop.ic" NAME="garflop Coverage Results" MODIFIED="1534092508881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="219" />
+  </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="-1162540317">
+    <session id="-2077764878">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="pom" value="2" />
+          <entry key="java" value="4" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="XML" value="3" />
+          <entry key="JAVA" value="4" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="xml" value="86" />
+          <entry key="dummy" value="7" />
+          <entry key="java" value="3467" />
+          <entry key="txt" value="28" />
+          <entry key="xml" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="XML" value="86" />
+          <entry key="JAVA" value="3467" />
+          <entry key="PLAIN_TEXT" value="35" />
+          <entry key="XML" value="41" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="89" column="58" selection-start-line="89" selection-start-column="58" selection-end-line="89" selection-end-column="58" />
+            <state relative-caret-position="779">
+              <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/garflop/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="580">
+              <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
               <folding>
-                <element signature="n#dependencies#0;n#project#0;n#!!top" expanded="true" />
-                <element signature="n#dependency#0;n#dependencies#0;n#project#0;n#!!top" expanded="true" />
-                <element signature="n#dependency#1;n#dependencies#0;n#project#0;n#!!top" expanded="true" />
-                <element signature="n#dependency#2;n#dependencies#0;n#project#0;n#!!top" expanded="true" />
-                <element signature="n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-                <element signature="n#configuration#0;n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-                <element signature="n#archive#0;n#configuration#0;n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-                <element signature="n#manifest#0;n#archive#0;n#configuration#0;n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-                <element signature="n#executions#0;n#plugin#1;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-                <element signature="n#execution#0;n#executions#0;n#plugin#1;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-                <element signature="n#goals#0;n#execution#0;n#executions#0;n#plugin#1;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-                <element signature="n#archive#0;n#configuration#0;n#plugin#1;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-                <element signature="n#manifest#0;n#archive#0;n#configuration#0;n#plugin#1;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-                <element signature="n#descriptorRefs#0;n#configuration#0;n#plugin#1;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,16 +94,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/test/java/garflop/garflopTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/garflop/garflop.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/garflop/Main.java" />
       </list>
     </option>
   </component>
   <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="alwaysUpdateSnapshots" value="true" />
-      </MavenGeneralSettings>
-    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
@@ -117,14 +129,11 @@
       <select />
     </treeState>
   </component>
-  <component name="MavenRunner">
-    <option name="skipTests" value="true" />
-  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="133" />
+    <option name="x" value="826" />
     <option name="y" value="22" />
-    <option name="width" value="1676" />
-    <option name="height" value="1028" />
+    <option name="width" value="1652" />
+    <option name="height" value="1387" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -134,26 +143,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="garflop_java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="garflop-java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="garflop_java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="garflop-java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="garflop_java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="garflop-java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="garflop_java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="garflop_java" type="b2602c69:ProjectViewProjectNode" />
@@ -163,22 +160,23 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534160790526" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534167464860" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
+    <property name="settings.editor.selected.configurable" value="coverage" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -206,6 +204,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="garflop" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="garflop.Main" />
+      <module name="garflop_java" />
+      <option name="PROGRAM_PARAMETERS" value="FIRSTGPSFILE.gpx" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
@@ -229,151 +235,126 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="tests" factoryName="Nosetests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Twisted Trial">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="py.test">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c172f4d4-eff7-450e-9224-d1225c1b67df" name="Default Changelist" comment="" />
-      <created>1534120790242</created>
+      <changelist id="2262833d-21ce-4373-8250-cd069a8c38f8" name="Default Changelist" comment="" />
+      <created>1534078676856</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1534120790242</updated>
+      <updated>1534078676856</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="133" y="22" width="1676" height="1028" extended-state="0" />
-    <editor active="true" />
+    <frame x="826" y="22" width="1652" height="1387" extended-state="0" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21603428" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18136646" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32968238" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936507" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32625785" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39937106" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Maven Projects" visible="true" weight="0.28518972" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.3294025" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32861635" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" weight="0.22360249" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.32981366" />
     </layout>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added elevation accumulation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added elevation accumulation" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$MAVEN_REPOSITORY$/jdom/jdom/1.0/jdom-1.0.pom">
+    <entry file="file://$PROJECT_DIR$/src/test/java/garflop/garflopTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="285">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/jdom/jdom/1.0/jdom-1.0-sources.jar!/org/jdom/JDOMException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
           <folding>
-            <element signature="n#project#0;n#!!top" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$MAVEN_REPOSITORY$/org/jdom/jdom2/2.0.6/jdom2-2.0.6.pom">
+    <entry file="file://$PROJECT_DIR$/src/main/java/garflop/garflop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="494">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
           <folding>
-            <element signature="n#project#0;n#!!top" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="89" column="58" selection-start-line="89" selection-start-column="58" selection-end-line="89" selection-end-column="58" />
+        <state relative-caret-position="779">
+          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/garflop/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="35" column="13" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
           <folding>
-            <element signature="n#dependencies#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#dependency#0;n#dependencies#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#dependency#1;n#dependencies#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#dependency#2;n#dependencies#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#configuration#0;n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#archive#0;n#configuration#0;n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#manifest#0;n#archive#0;n#configuration#0;n#plugin#0;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#executions#0;n#plugin#1;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#execution#0;n#executions#0;n#plugin#1;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#goals#0;n#execution#0;n#executions#0;n#plugin#1;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#archive#0;n#configuration#0;n#plugin#1;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#manifest#0;n#archive#0;n#configuration#0;n#plugin#1;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
-            <element signature="n#descriptorRefs#0;n#configuration#0;n#plugin#1;n#plugins#0;n#build#0;n#project#0;n#!!top" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -454,18 +435,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: jdom:jdom:1.0</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
+          <last-edited>Maven: junit:junit:4.11</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
