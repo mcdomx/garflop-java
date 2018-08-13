@@ -35,12 +35,21 @@
         <scope>compile</scope>
     </dependency>
 
+    <dependency>
+      <groupId>org.jdom</groupId>
+      <artifactId>jdom2</artifactId>
+      <version>2.0.6</version>
+      <scope>runtime</scope>
+    </dependency>
+
+
+
 
   </dependencies>
 
   <build>
     <plugins>
-      <plugin>
+        <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <version>3.0.2</version>
@@ -54,7 +63,33 @@
             </manifest>
           </archive>
         </configuration>
-      </plugin>
+        </plugin>
+
+        <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <archive>
+                    <forced>true</forced>
+                    <addMavenDescriptor>true</addMavenDescriptor>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                        <mainClass>garflop.Main</mainClass>
+                    </manifest>
+                </archive>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+            </configuration>
+        </plugin>
+
     </plugins>
   </build>
 
