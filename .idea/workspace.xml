@@ -2,36 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c172f4d4-eff7-450e-9224-d1225c1b67df" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom2_2_0_6.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/garflop_java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/garflop_java.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jdom-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dom4j/1.1/_remote.repositories" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dom4j/1.1/dom4j-1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dom4j/1.1/dom4j-1.1.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dom4j/1.1/dom4j-1.1.pom" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dom4j/1.1/dom4j-1.1.pom.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dom4j/1.6.1/_remote.repositories" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dom4j/1.6.1/dom4j-1.6.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dom4j/1.6.1/dom4j-1.6.1.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dom4j/1.6.1/dom4j-1.6.1.pom" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dom4j/1.6.1/dom4j-1.6.1.pom.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdom-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdom/1.0/_remote.repositories" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdom/1.0/jdom-1.0-sources.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdom/1.0/jdom-1.0-sources.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdom/1.0/jdom-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdom/1.0/jdom-1.0.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdom/1.0/jdom-1.0.pom" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdom/1.0/jdom-1.0.pom.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdom/1.6.1/jdom-1.6.1-sources.jar.lastUpdated" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdom/1.6.1/jdom-1.6.1.jar.lastUpdated" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdom/1.6.1/jdom-1.6.1.pom.lastUpdated" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/garflop_java-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/garflop_java-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/garflop_java-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-garflop.garflopTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/garflop.garflopTest.txt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,12 +35,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="xml" value="65" />
+          <entry key="xml" value="86" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="XML" value="65" />
+          <entry key="XML" value="86" />
         </counts>
       </usages-collector>
     </session>
@@ -76,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="85" column="26" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
+            <state relative-caret-position="491">
+              <caret line="89" column="58" selection-start-line="89" selection-start-column="58" selection-end-line="89" selection-end-column="58" />
               <folding>
                 <element signature="n#dependencies#0;n#project#0;n#!!top" expanded="true" />
                 <element signature="n#dependency#0;n#dependencies#0;n#project#0;n#!!top" expanded="true" />
@@ -192,7 +166,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534160211279" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534160790526" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -344,7 +318,7 @@
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32968238" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32968238" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -353,7 +327,7 @@
       <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Palette&#9;" />
-      <window_info active="true" anchor="right" id="Maven Projects" visible="true" weight="0.28518972" />
+      <window_info anchor="right" id="Maven Projects" visible="true" weight="0.28518972" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -383,8 +357,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="85" column="26" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
+        <state relative-caret-position="491">
+          <caret line="89" column="58" selection-start-line="89" selection-start-column="58" selection-end-line="89" selection-end-column="58" />
           <folding>
             <element signature="n#dependencies#0;n#project#0;n#!!top" expanded="true" />
             <element signature="n#dependency#0;n#dependencies#0;n#project#0;n#!!top" expanded="true" />
