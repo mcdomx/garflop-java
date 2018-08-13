@@ -28,11 +28,12 @@
       <scope>test</scope>
     </dependency>
 
-  <dependency>
-      <groupId>jdom</groupId>
-      <artifactId>jdom</artifactId>
-      <version>1.0</version>
-  </dependency>
+    <dependency>
+        <groupId>jdom</groupId>
+        <artifactId>jdom</artifactId>
+        <version>1.0</version>
+        <scope>compile</scope>
+    </dependency>
 
 
   </dependencies>
@@ -49,7 +50,7 @@
             <addMavenDescriptor>true</addMavenDescriptor>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>garflop.garflop</mainClass>
+              <mainClass>garflop.Main</mainClass>
             </manifest>
           </archive>
         </configuration>

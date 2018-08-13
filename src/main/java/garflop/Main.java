@@ -17,8 +17,7 @@ import org.jdom.input.SAXBuilder;
  * Hello world!
  *
  */
-public class garflop
-{
+public class Main {
     public static void main( String[] args )
     {
         for (String item : args) {

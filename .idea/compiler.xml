@@ -9,5 +9,8 @@
         <module name="garflop_java" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="garflop_java" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
