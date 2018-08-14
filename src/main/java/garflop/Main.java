@@ -15,8 +15,6 @@ import org.jdom.input.SAXBuilder;
 public class Main {
     public static void main( String[] args ) {
 
-
-
         try {
             // Create a document from a file
             File inputFile = new File(args[0]);
@@ -26,29 +24,28 @@ public class Main {
             Document document = saxBuilder.build(inputFile);
             Element rootElement = document.getRootElement();
 
+            Iterator<?> trkpts = rootElement.getDescendants(new ElementFilter("trkpt"));
 
-            Iterator<Element> trkpts = rootElement.getDescendants(new ElementFilter("trkpt"));
-
-
-            HashMap<String, Double> prev_point = new HashMap();
-            HashMap<String, Double> cur_point = new HashMap();
+            HashMap<String, Double> prev_point = new HashMap<String, Double>();
+            HashMap<String, Double> cur_point = new HashMap<String, Double>();
             Double prev_ele = 0.0;
             Double cur_ele = 0.0;
 
-            Double ttlDistance = 0.0;
-            Double ttlClimb = 0.0;
-            Double ttlDescent = 0.0;
+            double ttlDistance = 0.0;
+            double ttlClimb = 0.0;
+            double ttlDescent = 0.0;
 
             while (trkpts.hasNext()) {
 
-                Element trkpt = trkpts.next();
+                Element trkpt = (Element) trkpts.next();
 
                 List<Attribute> point = trkpt.getAttributes();
                 Element elevation = trkpt.getChild("ele", rootElement.getNamespace());
 
+
                 // ensure you have a lat lon element and only get data if you do...
-                if ((point.get(0).getName() == "lat" && point.get(1).getName() == "lon") ||
-                        (point.get(0).getName() == "lon" && point.get(1).getName() == "lat")) {
+                if ((point.get(0).getName().equals("lat") && point.get(1).getName().equals("lon")) ||
+                        (point.get(0).getName().equals("lon") && point.get(1).getName().equals("lat"))) {
 
                     //Get distance between points
                     cur_point.put(point.get(0).getName(), Double.parseDouble(point.get(0).getValue()));
@@ -70,7 +67,7 @@ public class Main {
 
                     prev_point.put("lat", cur_point.get("lat"));
                     prev_point.put("lon", cur_point.get("lon"));
-                    prev_ele = cur_ele.doubleValue();
+                    prev_ele = cur_ele;
 
                 } // end if
             } // end while()
@@ -80,18 +77,16 @@ public class Main {
             System.out.println("Total Descent: " + (double) Math.round(ttlDescent * 10d) / 10d);
 
 
-        } catch (JDOMException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException fnfe) {
-            fnfe.printStackTrace();
         } catch (IOException ioe) {
             ioe.printStackTrace();
+        } catch (JDOMException e) {
+            e.printStackTrace();
         }  // end try/catch()
     } // end main()
 
 
     // calc distance between 2 points
-    static double dist (HashMap < String, Double > cur_point, HashMap < String, Double > prev_point){
+    private static double dist (HashMap < String, Double > cur_point, HashMap < String, Double > prev_point){
         return calc_distance(prev_point.get("lat"), prev_point.get("lon"),
                 cur_point.get("lat"), cur_point.get("lon"));
     }
@@ -102,7 +97,7 @@ public class Main {
     Vincenty Formula http://www.movable-type.co.uk/scripts/latlong-vincenty.html
     SOURCE: https://github.com/janantala/GPS-distance
     */
-    static double calc_distance ( double lat1, double lon1, double lat2, double lon2){
+    private static double calc_distance ( double lat1, double lon1, double lat2, double lon2){
 
         double a = 6378137, b = 6356752.314245, f = 1 / 298.257223563;
         double L = (lon2 - lon1) * (Math.PI / 180);
@@ -161,9 +156,7 @@ public class Main {
                         * (-3 + 4 * sinSigma * sinSigma)
                         * (-3 + 4 * cos2SigmaM * cos2SigmaM)));
 
-        double s = b * A * (sigma - deltaSigma);
-
-        return s;
+        return b * A * (sigma - deltaSigma);
     } // end calc_distance()
 
 } // end main()
