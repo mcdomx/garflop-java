@@ -1,5 +1,7 @@
 package garflop;
 
+import garflop.Point.*;
+
 import java.io.*;
 import java.util.*;
 import static java.lang.Math.*;
@@ -26,55 +28,56 @@ public class Main {
 
             Iterator<?> trkpts = rootElement.getDescendants(new ElementFilter("trkpt"));
 
-            HashMap<String, Double> prev_point = new HashMap<String, Double>();
-            HashMap<String, Double> cur_point = new HashMap<String, Double>();
-            Double prev_ele = 0.0;
-            Double cur_ele = 0.0;
-
-            double ttlDistance = 0.0;
-            double ttlClimb = 0.0;
-            double ttlDescent = 0.0;
-
             while (trkpts.hasNext()) {
 
+                //Topografix GPX elements
                 Element trkpt = (Element) trkpts.next();
 
-                List<Attribute> point = trkpt.getAttributes();
+                Point point = new Point(trkpt.getAttributes());
+                if (!point.isValid()) continue;
+
+                //Get elevation of current point
                 Element elevation = trkpt.getChild("ele", rootElement.getNamespace());
+                point.setElevation(Double.parseDouble(elevation.getValue()));
 
+                //Garmin Trackpoint Extensions
+                //Check if extensions exist.  If they do, record the values.
+                Element pt_extensions = trkpt.getChild("extensions", trkpt.getNamespace());
+                if ( pt_extensions != null ) {
+                    // put the extensions in a list
+                    List<Element> extension_elements = pt_extensions.getChildren();
 
-                // ensure you have a lat lon element and only get data if you do...
-                if ((point.get(0).getName().equals("lat") && point.get(1).getName().equals("lon")) ||
-                        (point.get(0).getName().equals("lon") && point.get(1).getName().equals("lat"))) {
+                    //iterate over the list and allocate element values to their cumulative variables
+                    for ( Element e : extension_elements ) {
+                        // check for power
+                        if ( e.getName().equals("power") )
+                            point.setPower(Integer.parseInt(e.getValue()));
 
-                    //Get distance between points
-                    cur_point.put(point.get(0).getName(), Double.parseDouble(point.get(0).getValue()));
-                    cur_point.put(point.get(1).getName(), Double.parseDouble(point.get(1).getValue()));
+                        //check for TrackPointExtensions
+                        if ( e.getName().equals("TrackPointExtension") ) {
+                            //iterate through the track point extensions and store its values
+                            List<Element> tpxElements = e.getChildren();
+                            for ( Element tpx : tpxElements ) {
+                                String tpxName = tpx.getName();
+                                if ( tpxName.equals("hr") )
+                                    point.setHeartRate(Integer.parseInt(tpx.getValue()));
+                                else if ( tpxName.equals("cad") )
+                                    point.setCadence(Integer.parseInt(tpx.getValue()));
+                                }
+                            } // end if TrackPointExtension
 
-                    //Get elevation of current point
-                    cur_ele = Double.parseDouble(elevation.getValue());
+                        } // end if extension elements
 
-                    //Don't accumulate values if this is the first point
-                    if (!prev_point.keySet().isEmpty()) {
-                        ttlDistance += dist(prev_point, cur_point);
+                    } // end if for garmin trackpoint extensions
 
-                        if (cur_ele > prev_ele) {
-                            ttlClimb += cur_ele - prev_ele;
-                        } else {
-                            ttlDescent += prev_ele - cur_ele;
-                        }
-                    }
-
-                    prev_point.put("lat", cur_point.get("lat"));
-                    prev_point.put("lon", cur_point.get("lon"));
-                    prev_ele = cur_ele;
-
-                } // end if
             } // end while()
 
-            System.out.println("Total Distance: " + (double) Math.round(ttlDistance * 10d) / 10d);
-            System.out.println("Total Climb: " + (double) Math.round(ttlClimb * 10d) / 10d);
-            System.out.println("Total Descent: " + (double) Math.round(ttlDescent * 10d) / 10d);
+            System.out.println("Total Distance: " + (double) Math.round(totalDistance(Point.getPoints()) * 10d) / 10d);
+            System.out.println("Avg HR (max): " + (double) Math.round(Point.getAvgHR()) * 10d / 10d + " (" + Point.getMaxHR() + ")");
+            System.out.println("Avg Cadence (max): " + (double) Math.round(Point.getAvgCadence()) * 10d / 10d + " (" + Point.getMaxCadence() + ")");
+            HashMap<String, Double>climbStats = Point.getClimbStats();
+            System.out.println("Total Climb: " + (double) Math.round(climbStats.get("ttlClimb") * 10d) / 10d);
+            System.out.println("Total Descent: " + (double) Math.round(climbStats.get("ttlDescent") * 10d) / 10d);
 
 
         } catch (IOException ioe) {
@@ -85,10 +88,33 @@ public class Main {
     } // end main()
 
 
+
+
+    private static double totalDistance ( List<Point> points ) {
+
+        Point prevPoint;
+        Point curPoint;
+        double ttlDistance = 0.0;
+
+        ListIterator<Point> iterablePoints = points.listIterator();
+        prevPoint = iterablePoints.next();
+
+        while (iterablePoints.hasNext()) {
+            curPoint = iterablePoints.next();
+            ttlDistance += dist(curPoint, prevPoint);
+
+            prevPoint = curPoint;
+
+        }
+
+        return ttlDistance;
+
+    } // end totalDistance()
+
     // calc distance between 2 points
-    private static double dist (HashMap < String, Double > cur_point, HashMap < String, Double > prev_point){
-        return calc_distance(prev_point.get("lat"), prev_point.get("lon"),
-                cur_point.get("lat"), cur_point.get("lon"));
+    private static double dist (Point curPoint, Point prevPoint){
+        return calc_distance(prevPoint.getLat(), prevPoint.getLon(),
+                curPoint.getLat(), curPoint.getLon());
     }
 
     /*
