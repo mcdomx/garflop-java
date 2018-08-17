@@ -1,19 +1,11 @@
 package garflop;
 
-import com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIterNodeList;
 import org.jdom.Attribute;
-
-import java.lang.reflect.Array;
 import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toCollection;
-import static java.util.stream.Collectors.toList;
 
 // Point instances are created from the list returned by calling getAttributes on an element.
-// a List of all the points created is stored in the static variable Points
+// Each point adds itself to the Routepoints object that is identified in the initializer call.
 public class Point {
     private final double lat;
     private final double lon;
@@ -22,10 +14,9 @@ public class Point {
     private int power;
     private int heartRate;
     private int cadence;
-    private static ArrayList<Point> points = new ArrayList<>();
 
     // Point initializer
-    public Point (List<Attribute> attr){
+    public Point (List<Attribute> attr, RoutePoints route){
 
         Boolean hasLat = false;
         Boolean hasLon = false;
@@ -38,15 +29,13 @@ public class Point {
             if (attrName.equals("lon")) { hasLon=true; lon=Double.parseDouble(attr.get(i).getValue()); }
         } // end for loop
 
-        if (hasLat && hasLon) {
-            this.valid = true;
-        } else {
-            this.valid = false;
-        }
+        // check that both a lat and lon exist to ensure a valid point
+        if (hasLat && hasLon)   this.valid = true;
+        else                    this.valid = false;
 
         this.lat = lat;
         this.lon = lon;
-        points.add(this);
+        route.addPoint(this);
 
     } // end initializer
 
@@ -60,7 +49,11 @@ public class Point {
     }
 
     public double getElevation() {
-        return elevation;
+        try {
+            return elevation;
+        } catch (NoSuchElementException e) {
+            return 0;
+        }
     }
 
     public void setElevation(double elevation) {
@@ -72,7 +65,11 @@ public class Point {
     }
 
     public int getPower() {
-        return power;
+        try {
+            return power;
+        } catch (NoSuchElementException e) {
+            return 0;
+        }
     }
 
     public void setPower(int power) {
@@ -80,7 +77,12 @@ public class Point {
     }
 
     public int getHeartRate() {
-        return heartRate;
+        try {
+            return heartRate;
+
+        } catch (NoSuchElementException e) {
+            return 0;
+        }
     }
 
     public void setHeartRate(int heartRate) {
@@ -88,85 +90,16 @@ public class Point {
     }
 
     public int getCadence() {
-        return cadence;
+        try {
+            return cadence;
+        } catch (NoSuchElementException e) {
+            return 0;
+        }
     }
 
     public void setCadence(int cadence) {
         this.cadence = cadence;
     }
 
-    public static List<Point> getPoints () {
-        return Point.points;
-    }
-
-    public static int getMaxHR () {
-
-        return points.stream()
-                    .mapToInt(Point::getHeartRate)
-                    .max()
-                    .getAsInt();
-
-    }
-
-
-    public static double getAvgHR () {
-
-        OptionalDouble avgHR = points.stream()
-                            .mapToInt(Point::getHeartRate)
-                            .average();
-
-        return avgHR.getAsDouble();
-
-    }
-
-
-    public static int getMaxCadence () {
-
-        return points.stream()
-                .mapToInt(Point::getCadence)
-                .max()
-                .getAsInt();
-
-    }
-
-    public static double getAvgCadence () {
-
-        OptionalDouble avgCadence = points.stream()
-                .mapToInt(Point::getCadence)
-                .filter(i -> i>0)
-                .average();
-
-        return avgCadence.getAsDouble();
-
-    }
-
-
-
-    public static HashMap<String, Double> getClimbStats () {
-        HashMap<String, Double> elevStatistics = new HashMap<>();
-        double ttlClimb = 0.0;
-        double ttlDescent = 0.0;
-        Point prevPoint;
-        Point curPoint;
-        double diff;
-
-        Iterator<Point> iterPoints = points.iterator();
-        prevPoint = iterPoints.next();
-
-        while (iterPoints.hasNext()) {
-            curPoint = iterPoints.next();
-            diff = curPoint.getElevation() - prevPoint.getElevation();
-            if ( diff > 0 ) {
-                ttlClimb += diff;
-            } else {
-                ttlDescent += diff;
-            }
-        }
-
-        elevStatistics.put( "ttlClimb", ttlClimb );
-        elevStatistics.put( "ttlDescent", ttlDescent );
-
-        return elevStatistics;
-    }
 
 }
