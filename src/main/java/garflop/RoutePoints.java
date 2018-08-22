@@ -67,5 +67,13 @@ public class RoutePoints {
                 .sum();
     }
 
+    public static long getEpochStartTime () {
+        return points.get(0).getEpochTimeStamp();
+    }
+
+    public static long getEpochEndTime () {
+        return points.get(points.size()-1).getEpochTimeStamp();
+    }
+
 
 }

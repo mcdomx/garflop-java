@@ -11,6 +11,7 @@ public class Point {
     private final double lon;
     private final Boolean valid;
     private double elevation;
+    private long epochTimeStamp;
     private int power;
     private int heartRate;
     private int cadence;
@@ -56,8 +57,20 @@ public class Point {
         }
     }
 
-    public void setElevation(double elevation) {
-        this.elevation = elevation;
+    public void setElevation(double e) {
+        this.elevation = e;
+    }
+
+    public long getEpochTimeStamp() {
+        try {
+            return epochTimeStamp;
+        } catch (NoSuchElementException e) {
+            return 0;
+        }
+    }
+
+    public void setEpochTimeStamp(long t) {
+        this.epochTimeStamp = t;
     }
 
     public boolean isValid() {
@@ -72,8 +85,8 @@ public class Point {
         }
     }
 
-    public void setPower(int power) {
-        this.power = power;
+    public void setPower(int p) {
+        this.power = p;
     }
 
     public int getHeartRate() {
@@ -85,8 +98,8 @@ public class Point {
         }
     }
 
-    public void setHeartRate(int heartRate) {
-        this.heartRate = heartRate;
+    public void setHeartRate(int hr) {
+        this.heartRate = hr;
     }
 
     public int getCadence() {
@@ -97,8 +110,8 @@ public class Point {
         }
     }
 
-    public void setCadence(int cadence) {
-        this.cadence = cadence;
+    public void setCadence(int c) {
+        this.cadence = c;
     }
 
 
