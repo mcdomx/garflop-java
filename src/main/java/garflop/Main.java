@@ -11,6 +11,8 @@ import org.jdom.*;
 import org.jdom.filter.ElementFilter;
 import org.jdom.input.SAXBuilder;
 
+import javax.xml.crypto.Data;
+
 
 public class Main {
     public static void main( String[] args ) {
@@ -62,22 +64,22 @@ public class Main {
 
         switch (element.getName()){
             case "ele":
-                point.setElevation(Double.parseDouble(element.getValue()));
+                new Elevation().set(point, element);
                 break;
             case "time":
-                DateTimeFormatter dtf = DateTimeFormatter.ISO_INSTANT;
-                Long epochStamp = dtf.parse(element.getValue()).getLong(INSTANT_SECONDS);
-                point.setEpochTimeStamp(epochStamp);
+                new TimePoint().set(point, element);
                 break;
             case "power":
-                point.setPower(Integer.parseInt(element.getValue()));
+                new Power().set(point, element);
                 break;
             case "hr":
-                point.setHeartRate(Integer.parseInt(element.getValue()));
+                new HeartRate().set(point, element);
                 break;
             case "cad":
-                point.setCadence(Integer.parseInt(element.getValue()));
+                new Cadence().set(point, element);
                 break;
+
+
         }
 
     } // end iterateElements()
