@@ -6,7 +6,7 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import static com.sun.xml.internal.xsom.impl.Const.schemaNamespace;
-import static java.time.temporal.ChronoField.*;
+
 import org.jdom.*;
 import org.jdom.filter.ElementFilter;
 import org.jdom.input.SAXBuilder;
@@ -26,7 +26,7 @@ public class Main {
             Namespace rootNameSpace = rootElement.getNamespace();
 
             //Create new RoutePoint object to store points in
-            RoutePoints route = new RoutePoints();
+            RoutePoints route = RoutePoints.createRoutePoints();
 
             Iterator<?> trkpts = rootElement.getDescendants(new ElementFilter("trkpt"));
 
@@ -78,8 +78,6 @@ public class Main {
             case "cad":
                 new Cadence().set(point, element);
                 break;
-
-
         }
 
     } // end iterateElements()
@@ -87,10 +85,11 @@ public class Main {
 
     private static void displaySummary (RoutePoints route) {
         displayTimeDistanceRate(route);
-        displayHR(route);
-        displayClimb(route);
-        displayPower(route);
-        displayCadence(route);
+
+        HeartRate.display(route);
+        Elevation.display(route);
+        Power.display(route);
+        Cadence.display(route);
     } // end displaySummary
 
 
@@ -116,43 +115,6 @@ public class Main {
     } // end displayTimeDistanceRate()
 
 
-    private static void displayHR(RoutePoints route) {
-        IntSummaryStatistics hr = route.hrSummary();
-        if (hr.getAverage() != 0) {
-            System.out.println("Avg HR (max): " +
-                    (int) hr.getAverage() +
-                    " (" + hr.getMax() + ")");
-        }
-    } // end displayHR()
-
-
-    private static void displayClimb(RoutePoints route) {
-        System.out.println("Total Climb (Descent): " + (int) route.getClimb() + " (" + (int) route.getDescent() + ")");
-    } // end displayClimb()
-
-
-    private static void displayPower(RoutePoints route) {
-        IntSummaryStatistics pwr = route.powerSummary();
-        if (pwr.getAverage() != 0) {
-            System.out.println("Avg Power (max): " +
-                    (int) pwr.getAverage() +
-                    " (" + (int) pwr.getMax() + ")");
-            IntSummaryStatistics pwrNonZero = route.powerSummary_nonZero();
-            System.out.println("Avg Power - Non Zero (max): " +
-                    (int) pwrNonZero.getAverage() +
-                    " (" + (int) pwrNonZero.getMax() + ")");
-        }
-    }// end displayPower()
-
-
-    private static void displayCadence(RoutePoints route) {
-        IntSummaryStatistics cad = route.cadenceSummary();
-        if (cad.getAverage() != 0 ) {
-            System.out.println("Avg Cadence (max): " +
-                    (int) cad.getAverage() +
-                    " (" + cad.getMax() + ")");
-        }
-    } // end displayTimes()
 
 
     private static void getSchemas(Element root) {

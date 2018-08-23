@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2262833d-21ce-4373-8250-cd069a8c38f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/garflop/Cadence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/garflop/DataField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/garflop/Elevation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/garflop/HeartRate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/garflop/Power.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/garflop/TimePoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/garflop/Cadence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/garflop/Cadence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/garflop/Elevation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/garflop/Elevation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/garflop/HeartRate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/garflop/HeartRate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/garflop/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/garflop/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/garflop/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/garflop/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/garflop/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/garflop/Point.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/garflop/RoutePoints.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/garflop/RoutePoints.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/garflop/Power.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/garflop/Power.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/garflop/RoutePoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/garflop/RoutePoints.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -106,15 +102,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="15884" />
-          <entry key="txt" value="29" />
+          <entry key="java" value="16345" />
+          <entry key="txt" value="61" />
           <entry key="xml" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="15884" />
-          <entry key="PLAIN_TEXT" value="29" />
+          <entry key="JAVA" value="16345" />
+          <entry key="PLAIN_TEXT" value="61" />
           <entry key="XML" value="19" />
         </counts>
       </usages-collector>
@@ -132,11 +128,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/garflop/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="82" column="9" lean-forward="true" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
+            <state relative-caret-position="528">
+              <caret line="28" column="64" lean-forward="true" selection-start-line="28" selection-start-column="64" selection-end-line="28" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -147,8 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/garflop/Elevation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="209">
+              <caret line="11" column="119" selection-start-line="11" selection-start-column="119" selection-end-line="11" selection-end-column="119" />
               <folding>
                 <element signature="e#144#145#0" expanded="true" />
                 <element signature="e#218#219#0" expanded="true" />
@@ -169,9 +165,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/garflop/Power.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="418">
+              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#140#141#0" expanded="true" />
                 <element signature="e#208#209#0" expanded="true" />
               </folding>
@@ -182,9 +179,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/garflop/HeartRate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="342">
+              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#144#145#0" expanded="true" />
                 <element signature="e#216#217#0" expanded="true" />
               </folding>
@@ -192,7 +190,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/garflop/DataField.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
@@ -204,9 +202,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/garflop/Cadence.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="342">
+              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#103#104#0" expanded="true" />
                 <element signature="e#173#174#0" expanded="true" />
               </folding>
@@ -241,10 +240,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/garflop/RoutePoints.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="334">
+              <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#652#653#0" expanded="true" />
+                <element signature="e#685#686#0" expanded="true" />
+                <element signature="e#735#736#0" expanded="true" />
+                <element signature="e#764#765#0" expanded="true" />
+                <element signature="e#2257#2258#0" expanded="true" />
+                <element signature="e#2313#2314#0" expanded="true" />
+                <element signature="e#2358#2359#0" expanded="true" />
+                <element signature="e#2428#2429#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -278,16 +285,16 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/garflop/DistanceCalculations.java" />
         <option value="$PROJECT_DIR$/src/main/java/garflop/Point.java" />
-        <option value="$PROJECT_DIR$/src/main/java/garflop/RoutePoints.java" />
         <option value="$PROJECT_DIR$/src/main/java/garflop/cadenceBehavior.java" />
         <option value="$PROJECT_DIR$/src/main/java/garflop/DataField.java" />
-        <option value="$PROJECT_DIR$/src/main/java/garflop/Cadence.java" />
-        <option value="$PROJECT_DIR$/src/main/java/garflop/HeartRate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/garflop/Power.java" />
         <option value="$PROJECT_DIR$/src/main/java/garflop/Time.java" />
         <option value="$PROJECT_DIR$/src/main/java/garflop/TimePoint.java" />
+        <option value="$PROJECT_DIR$/src/main/java/garflop/Cadence.java" />
+        <option value="$PROJECT_DIR$/src/main/java/garflop/Power.java" />
         <option value="$PROJECT_DIR$/src/main/java/garflop/Elevation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/garflop/HeartRate.java" />
         <option value="$PROJECT_DIR$/src/main/java/garflop/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/garflop/RoutePoints.java" />
       </list>
     </option>
   </component>
@@ -323,9 +330,9 @@
     <option name="jreName" value="1.8" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="157" />
-    <option name="y" value="57" />
-    <option name="width" value="1694" />
+    <option name="x" value="122" />
+    <option name="y" value="45" />
+    <option name="width" value="1375" />
     <option name="height" value="1301" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -386,7 +393,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534944109641" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534978634744" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -411,7 +418,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.garflop-second file">
+  <component name="RunManager" selected="Application.garflop">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -500,16 +507,30 @@
       <option name="project" value="LOCAL" />
       <updated>1534512483069</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="using interfaces for data points">
+      <created>1534944129060</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1534944129060</updated>
+    </task>
+    <task id="LOCAL-00005" summary="using interfaces for data points">
+      <created>1534944140566</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1534944140566</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="157" y="57" width="1694" height="1301" extended-state="0" />
+    <frame x="122" y="45" width="1375" height="1301" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Build Variants" side_tool="true" />
       <window_info id="Captures" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18825665" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23330833" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -520,7 +541,7 @@
       <window_info anchor="bottom" id="Logcat" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936507" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2613828" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2613828" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39881957" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -540,6 +561,40 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.32981366" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Build Variants" order="0" side_tool="true" />
+      <window_info id="Captures" order="1" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.18825665" />
+      <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Designer" order="5" />
+      <window_info id="UI Designer" order="6" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Favorites" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Android Profiler" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Logcat" order="1" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.32936507" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.2613828" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.39881957" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.3294025" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32799324" />
+      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.07701863" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32981366" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -573,7 +628,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added elevation accumulation" />
     <MESSAGE value="moving to streams and lambdas" />
-    <option name="LAST_COMMIT_MESSAGE" value="moving to streams and lambdas" />
+    <MESSAGE value="using interfaces for data points" />
+    <option name="LAST_COMMIT_MESSAGE" value="using interfaces for data points" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/test/java/garflop/garflopTest.java">
@@ -634,49 +690,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/garflop/RoutePoints.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/garflop/cadenceBehavior.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/garflop/DataField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/garflop/Cadence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#103#104#0" expanded="true" />
-            <element signature="e#173#174#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/garflop/HeartRate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#144#145#0" expanded="true" />
-            <element signature="e#216#217#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -694,10 +711,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/garflop/Cadence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#103#104#0" expanded="true" />
+            <element signature="e#173#174#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/garflop/Power.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#140#141#0" expanded="true" />
+            <element signature="e#208#209#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/garflop/Elevation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="209">
+          <caret line="11" column="119" selection-start-line="11" selection-start-column="119" selection-end-line="11" selection-end-column="119" />
           <folding>
             <element signature="e#144#145#0" expanded="true" />
             <element signature="e#218#219#0" expanded="true" />
@@ -705,24 +746,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/garflop/Power.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/garflop/HeartRate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="342">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
           <folding>
-            <element signature="e#140#141#0" expanded="true" />
-            <element signature="e#208#209#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#144#145#0" expanded="true" />
+            <element signature="e#216#217#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/garflop/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="82" column="9" lean-forward="true" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
+        <state relative-caret-position="528">
+          <caret line="28" column="64" lean-forward="true" selection-start-line="28" selection-start-column="64" selection-end-line="28" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/garflop/RoutePoints.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#652#653#0" expanded="true" />
+            <element signature="e#685#686#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+            <element signature="e#764#765#0" expanded="true" />
+            <element signature="e#2257#2258#0" expanded="true" />
+            <element signature="e#2313#2314#0" expanded="true" />
+            <element signature="e#2358#2359#0" expanded="true" />
+            <element signature="e#2428#2429#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/garflop/DataField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>

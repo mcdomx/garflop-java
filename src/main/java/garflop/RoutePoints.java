@@ -8,13 +8,22 @@ import static java.util.stream.Collectors.summarizingInt;
 
 /*  RoutePoints class hold the array of points collected in a route.
     Methods return summary values and statistics calculated from the points.
+    RoutePoints uses singleton pattern to ensure only one instance is created.
  */
 
 public class RoutePoints {
 
+    private static RoutePoints unique;
     private static ArrayList<Point> points = new ArrayList<>();
 
-    public RoutePoints () {
+    private RoutePoints () {
+    }
+
+    public static RoutePoints createRoutePoints() {
+        if (unique == null)
+            unique = new RoutePoints();
+
+        return unique;
     }
 
     public static void addPoint(Point point) {
