@@ -1,21 +1,30 @@
 package garflop;
 
+import java.awt.*;
 import java.io.*;
+import java.net.*;
 import java.text.DecimalFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.List;
+
 import static com.sun.xml.internal.xsom.impl.Const.schemaNamespace;
+import static garflop.RoutePoints.getMapPoints;
+import static garflop.RoutePoints.getPoints;
+import static java.lang.System.exit;
 
 import org.jdom.*;
 import org.jdom.filter.ElementFilter;
 import org.jdom.input.SAXBuilder;
 
-import javax.xml.crypto.Data;
+import org.json.JSONWriter;
+import java.io.FileWriter;
 
 
 public class Main {
     public static void main( String[] args ) {
+
 
         try {
             // Create a new SAXBuilder document from file provided as argument
@@ -39,12 +48,17 @@ public class Main {
                 Point point = new Point(trkpt.getAttributes(), route);
                 if (!point.isValid()) continue;
 
-                //find "bottom" elements and store them in route points
+                //find data elements and store them in route points
                 iterateElements(trkpt, point);
 
             } // end while()
 
             displaySummary(route);
+            List<Map<String, Double>> rpts = getMapPoints();
+            URL url = new URL("http://127.0.0.1:5000/" + rpts.get(1).toString());
+            openWebPage(url);
+//            streamPointsToURL();
+
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -53,6 +67,75 @@ public class Main {
         }  // end try/catch()
     } // end main()
 
+
+
+    private static void openWebPage(URL url) {
+        try {
+//            java.awt.Desktop.getDesktop().browse(url.toURI());
+            Runtime.getRuntime().exec(new String[]{"/usr/bin/open", "-a", "/Applications/Google Chrome.app", url.toString()});
+        } catch (IOException e) {
+            System.out.println("error opening: " + url);
+        }
+//        catch (URISyntaxException e) {
+//
+//        }
+    }
+
+    private static void streamPointsToURL() {
+
+        List<Map<String, Double>> rpts = getMapPoints();
+
+        try {
+            String stringToSend = URLEncoder.encode(rpts.toString(), "UTF-8");
+            URL url = new URL("http://127.0.0.1:5000/");
+            URLConnection connection = url.openConnection();
+            connection.setDoOutput(true);
+            OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
+            out.write("string=" + stringToSend);
+            out.close();
+        } catch (UnknownServiceException e) {
+            System.out.println("unknown service");
+        } catch (MalformedURLException e){
+            System.out.println("malformed url");
+        } catch (IOException e) {
+            System.out.println("IO Exception");;
+
+        }
+    }
+
+    // Drops a file of route points for the mapping function to read
+    // The file is a JSON file that is an Array of dictionary elements where
+    //  each dictionary element is { "lat": lat-value, "lon":lon-value }
+    private static void dropPointsFile() {
+
+        try {
+            Writer writer = new FileWriter("routePoints.JSON");
+            JSONWriter jsonWriter = new JSONWriter(writer);
+            ArrayList<Point> points = getPoints();
+
+            jsonWriter.array();
+
+                for ( Point p : points ) {
+                    jsonWriter
+                            .object()
+                            .key("lat")
+                            .value(p.getLat());
+                    jsonWriter
+                            .key("lon")
+                            .value(p.getLon());
+                    jsonWriter.endObject();
+                }
+
+            jsonWriter.endArray();
+
+            writer.close();
+
+        } catch (IOException e) {
+            System.out.println("can't create file or writer.");
+            return;
+        }
+
+    }
 
     private static void iterateElements (Element element, Point point) {
         List<Element> sub_elements = element.getChildren();
@@ -106,7 +189,7 @@ public class Main {
         Duration ttlTime = Duration.between(startTime, endTime);
         System.out.println("Total Time: " + ttlTime.toHours() + ":" + ttlTime.toMinutes()%60 + ":" + ttlTime.toMillis()/1000%60);
 
-        Double ttlDistance = DistanceCalculations.totalDistanceInKM(route.getPoints());
+        Double ttlDistance = DistanceCalculations.totalDistanceInKM(getPoints());
         System.out.println("Total Distance: " + Double.valueOf(new DecimalFormat("#.#").format(ttlDistance)));
         Double timeFrac = ttlTime.toHours() + ttlTime.toMinutes()%60/60.0 + ttlTime.toMillis()/1000%60/60.0/60.0;
         Double rate = ttlDistance / timeFrac;
