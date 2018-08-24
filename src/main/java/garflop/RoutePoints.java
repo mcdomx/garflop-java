@@ -1,7 +1,8 @@
 package garflop;
 
-import java.util.ArrayList;
-import java.util.IntSummaryStatistics;
+import com.sun.xml.internal.xsom.impl.scd.Iterators;
+
+import java.util.*;
 import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.summarizingInt;
@@ -28,6 +29,20 @@ public class RoutePoints {
 
     public static void addPoint(Point point) {
         points.add(point);
+    }
+
+    public static List<Map<String, Double>> getMapPoints() {
+        List<Map<String, Double>> rpts = new ArrayList<>();
+
+        for (Point p : points) {
+            Map<String, Double> pt = new HashMap<>();
+            pt.put("lat", p.getLat());
+            pt.put("lon", p.getLon());
+            rpts.add(pt);
+        }
+
+        return rpts;
+
     }
 
     public static ArrayList<Point> getPoints() {
