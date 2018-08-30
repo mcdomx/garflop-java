@@ -3,6 +3,12 @@ package garflop;
 import garflop.DistanceCalculations;
 import com.sun.tools.javac.util.Pair;
 
+import java.text.DecimalFormat;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.IntStream;
 
@@ -18,9 +24,10 @@ public class RoutePoints {
     private static RoutePoints unique;
     private static ArrayList<Point> points = new ArrayList<>();
 
-    private RoutePoints () {
-    }
+    //private initializer for singelton pattern
+    private RoutePoints () {    }
 
+    //singleton initializer
     public static RoutePoints createRoutePoints() {
         if (unique == null)
             unique = new RoutePoints();
@@ -28,8 +35,33 @@ public class RoutePoints {
         return unique;
     }
 
+    public static RoutePoints getCurrentRoute() {
+        return unique;
+    }
+
+    //clears all the points in the route
+    public static void resetRoutePoints() {
+        points.clear();
+    }
+
     public static double distanceInMeters () {
         return DistanceCalculations.totalDistanceInMeters(points);
+    }
+
+    public static String getDistanceInKM () {
+        Double ttlDistance = DistanceCalculations.totalDistanceInKM(getPoints());
+        return (Double.valueOf(new DecimalFormat("#.#").format(ttlDistance))).toString();
+    }
+
+    public static String getRate () {
+        int offset = ZonedDateTime.now().getOffset().getTotalSeconds()/60/60;
+        LocalDateTime startTime = LocalDateTime.ofEpochSecond(getEpochStartTime(), 0, ZoneOffset.ofHours(offset));
+        LocalDateTime endTime = LocalDateTime.ofEpochSecond(getEpochEndTime(), 0, ZoneOffset.ofHours(offset));
+        Duration ttlTime = Duration.between(startTime, endTime);
+        Double ttlDistance = DistanceCalculations.totalDistanceInKM(getPoints());
+        Double timeFrac = ttlTime.toHours() + ttlTime.toMinutes()%60/60.0 + ttlTime.toMillis()/1000%60/60.0/60.0;
+        Double rate = Math.round(ttlDistance / timeFrac * 100.0)/100.0;
+        return rate.toString();
     }
 
     public static void addPoint(Point point) {
@@ -128,9 +160,29 @@ public class RoutePoints {
         return points.get(0).getEpochTimeStamp();
     }
 
+    public static String getFormattedStartTime() {
+        int offset = ZonedDateTime.now().getOffset().getTotalSeconds()/60/60;
+        LocalDateTime startTime = LocalDateTime.ofEpochSecond(getEpochStartTime(), 0, ZoneOffset.ofHours(offset));
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mma");
+        return dtf.format(startTime);
+    }
+
     public static long getEpochEndTime () {
         return points.get(points.size()-1).getEpochTimeStamp();
     }
 
+    public static String getFormattedEndTime() {
+        int offset = ZonedDateTime.now().getOffset().getTotalSeconds()/60/60;
+        LocalDateTime endTime = LocalDateTime.ofEpochSecond(getEpochEndTime(), 0, ZoneOffset.ofHours(offset));
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mma");
+        return dtf.format(endTime);
+    }
 
+    public static String getElapsedRideTime () {
+        int offset = ZonedDateTime.now().getOffset().getTotalSeconds()/60/60;
+        LocalDateTime startTime = LocalDateTime.ofEpochSecond(getEpochStartTime(), 0, ZoneOffset.ofHours(offset));
+        LocalDateTime endTime = LocalDateTime.ofEpochSecond(getEpochEndTime(), 0, ZoneOffset.ofHours(offset));
+        Duration ttlTime = Duration.between(startTime, endTime);
+        return (ttlTime.toHours() + ":" + ttlTime.toMinutes()%60 + ":" + ttlTime.toMillis()/1000%60);
+    }
 }

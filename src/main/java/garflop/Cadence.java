@@ -19,4 +19,25 @@ public class Cadence implements DataField {
         }
     }
 
+    public static String getAvgCadence() {
+        String rv = null;
+        RoutePoints route = RoutePoints.getCurrentRoute();
+        IntSummaryStatistics cad = route.cadenceSummary();
+        if (cad.getAverage() != 0 )
+            rv = Integer.toString((int) cad.getAverage());
+
+        return rv;
+    }
+
+    public static String getMaxCadence() {
+        String rv = null;
+        RoutePoints route = RoutePoints.getCurrentRoute();
+        IntSummaryStatistics cad = route.cadenceSummary();
+        if (cad.getAverage() != 0 )
+            rv = Integer.toString((int) cad.getMax());
+
+        return rv;
+    }
+
+
 }

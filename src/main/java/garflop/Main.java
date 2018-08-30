@@ -13,6 +13,7 @@ import java.util.List;
 
 import static garflop.RoutePoints.getMapPoints;
 import static garflop.RoutePoints.getPoints;
+import static garflop.RoutePoints.resetRoutePoints;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -80,6 +81,7 @@ public class Main extends Application {
             Namespace rootNameSpace = rootElement.getNamespace();
 
             //Create new RoutePoint object to store points in
+            resetRoutePoints();
             RoutePoints route = RoutePoints.createRoutePoints();
 
             Iterator<?> trkpts = rootElement.getDescendants(new ElementFilter("trkpt"));

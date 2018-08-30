@@ -22,4 +22,34 @@ public class Power implements DataField {
                     " (" + (int) pwrNonZero.getMax() + ")");
         }
     }
+
+    public static String getAvgPower() {
+        String rv = null;
+        RoutePoints route = RoutePoints.getCurrentRoute();
+        IntSummaryStatistics pwr = route.powerSummary();
+        if (pwr.getAverage() != 0)
+            rv = Integer.toString((int)pwr.getAverage());
+
+        return rv;
+    }
+
+    public static String getAvgPowerNonZero() {
+        String rv = null;
+        RoutePoints route = RoutePoints.getCurrentRoute();
+        IntSummaryStatistics pwr = route.powerSummary_nonZero();
+        if (pwr.getAverage() != 0)
+            rv = Integer.toString((int)pwr.getAverage());
+
+        return rv;
+    }
+
+    public static String getMaxPower() {
+        String rv = null;
+        RoutePoints route = RoutePoints.getCurrentRoute();
+        IntSummaryStatistics pwr = route.powerSummary();
+        if (pwr.getAverage() != 0)
+            rv = Integer.toString((int)pwr.getMax());
+
+        return rv;
+    }
 }

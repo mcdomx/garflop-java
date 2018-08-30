@@ -18,4 +18,24 @@ public class HeartRate implements DataField {
                     " (" + hr.getMax() + ")");
         }
     }
+
+    public static String getAvgHR () {
+        String rv = null;
+        RoutePoints route = RoutePoints.getCurrentRoute();
+        IntSummaryStatistics hr = route.hrSummary();
+        if (hr.getAverage() != 0)
+            rv = Integer.toString((int) hr.getAverage());
+
+        return rv;
+    }
+
+    public static String getMaxHR () {
+        String rv = null;
+        RoutePoints route = RoutePoints.getCurrentRoute();
+        IntSummaryStatistics hr = route.hrSummary();
+        if (hr.getAverage() != 0)
+            rv = Integer.toString((int) hr.getMax());
+
+        return rv;
+    }
 }
