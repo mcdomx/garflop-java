@@ -1,6 +1,7 @@
 package garflop;
 
-import com.sun.xml.internal.xsom.impl.scd.Iterators;
+import garflop.DistanceCalculations;
+import com.sun.tools.javac.util.Pair;
 
 import java.util.*;
 import java.util.stream.IntStream;
@@ -27,8 +28,40 @@ public class RoutePoints {
         return unique;
     }
 
+    public static double distanceInMeters () {
+        return DistanceCalculations.totalDistanceInMeters(points);
+    }
+
     public static void addPoint(Point point) {
         points.add(point);
+    }
+
+    public static List<Pair<Double, Double>> getElevationPoints(int maxPoints) {
+
+        //e_pts holds the points in a route that mark elevation points
+        List<Pair<Double, Double>> e_pts = new ArrayList<>();
+
+        //Points need to be evenly spaced so a fixed distance between
+        //marked elevation points is calculated
+        int numPts = points.size();
+        double dist = distanceInMeters();
+        double metersPerPoint = dist / maxPoints;
+        double cumDist = 0;
+
+        //Store the initial point
+        e_pts.add(new Pair<>(0.00, points.get(0).getElevation() ));
+
+        //Loop through points and store an elevation point when the
+        //fixed distance between points is reached
+        for ( int curPt=1 ; curPt < numPts ; curPt++ ) {
+            cumDist += DistanceCalculations.ptDistInMeters(points.get(curPt), points.get(curPt-1));
+            if ( cumDist >= (metersPerPoint*e_pts.size()) )
+                e_pts.add(new Pair<>(cumDist, points.get(curPt).getElevation()));
+        }
+
+        System.out.println("Total Elevation Points: " + e_pts.size());
+
+        return e_pts;
     }
 
     public static List<Map<String, Double>> getMapPoints() {

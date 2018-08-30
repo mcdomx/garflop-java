@@ -1,18 +1,29 @@
 package garflop;
 
-import java.awt.*;
+
 import java.io.*;
-import java.net.*;
+import java.net.URI;
+import java.net.URL;
+import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.List;
 
-import static com.sun.xml.internal.xsom.impl.Const.schemaNamespace;
 import static garflop.RoutePoints.getMapPoints;
 import static garflop.RoutePoints.getPoints;
-import static java.lang.System.exit;
+
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 
 import org.jdom.*;
 import org.jdom.filter.ElementFilter;
@@ -22,13 +33,47 @@ import org.json.JSONWriter;
 import java.io.FileWriter;
 
 
-public class Main {
-    public static void main( String[] args ) {
+public class Main extends Application {
 
+    static Stage primaryStage;
+
+
+    public static void main( String[] args ) {
+        launch(args);
+    } // end main()
+
+
+    @Override
+    public void start(Stage stage) throws Exception {
+
+        primaryStage = stage;
+
+        //Root
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/garflop.fxml"));
+
+        //Scene
+        stage.setTitle("Route Analysis");
+        Scene scene = new Scene(root, 800, 800);
+        //add stylesheet
+        scene.getStylesheets().
+                add(Main.class.getResource("/fxml/garflop.css").toExternalForm());
+
+        //Stage
+        stage.setScene(scene);
+        stage.show();
+
+    } // end start()
+
+    public static Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+
+    public static void processFile(File inputFile) {
 
         try {
             // Create a new SAXBuilder document from file provided as argument
-            File inputFile = new File(args[0]);
+//            File inputFile = new File(fileName);
             SAXBuilder s = new SAXBuilder();
             Document document = s.build(inputFile);
             Element rootElement = document.getRootElement();
@@ -55,10 +100,6 @@ public class Main {
 
             displaySummary(route);
             List<Map<String, Double>> rpts = getMapPoints();
-            URL url = new URL("http://127.0.0.1:5000/" + rpts.get(1).toString());
-            openWebPage(url);
-//            streamPointsToURL();
-//            just testing to see if this commit works
 
 
         } catch (IOException ioe) {
@@ -66,43 +107,10 @@ public class Main {
         } catch (JDOMException e) {
             e.printStackTrace();
         }  // end try/catch()
-    } // end main()
 
-
-
-    private static void openWebPage(URL url) {
-        try {
-//            java.awt.Desktop.getDesktop().browse(url.toURI());
-            Runtime.getRuntime().exec(new String[]{"/usr/bin/open", "-a", "/Applications/Google Chrome.app", url.toString()});
-        } catch (IOException e) {
-            System.out.println("error opening: " + url);
-        }
-//        catch (URISyntaxException e) {
-//
-//        }
     }
 
-    private static void streamPointsToURL() {
 
-        List<Map<String, Double>> rpts = getMapPoints();
-
-        try {
-            String stringToSend = URLEncoder.encode(rpts.toString(), "UTF-8");
-            URL url = new URL("http://127.0.0.1:5000/");
-            URLConnection connection = url.openConnection();
-            connection.setDoOutput(true);
-            OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
-            out.write("string=" + stringToSend);
-            out.close();
-        } catch (UnknownServiceException e) {
-            System.out.println("unknown service");
-        } catch (MalformedURLException e){
-            System.out.println("malformed url");
-        } catch (IOException e) {
-            System.out.println("IO Exception");;
-
-        }
-    }
 
     // Drops a file of route points for the mapping function to read
     // The file is a JSON file that is an Array of dictionary elements where
@@ -201,29 +209,29 @@ public class Main {
 
 
 
-    private static void getSchemas(Element root) {
-
-        Namespace xsiNamespace = root.getNamespace();
-
-        System.out.println("Root Namespace: " + root.getNamespace());
-        System.out.println("SchemaNamespace: " + schemaNamespace);
-
-        List<Attribute> rootAttrs = root.getAttributes();
-        for (int i=0; i<rootAttrs.size(); i++) {
-            if (rootAttrs.get(i).getNamespacePrefix().equals("xsi"))
-                xsiNamespace = rootAttrs.get(i).getNamespace();
-            System.out.println(rootAttrs.get(i).getNamespace() + "  " + rootAttrs.get(i).getName());
-        }
-
-        String[] schemas = root.getAttributeValue("schemaLocation", xsiNamespace).split(" ");
-
-        Set<String> schemaSet = new HashSet<>(Arrays.asList(schemas));
-
-        System.out.println("Now for my final trick!");
-
-        for (String i : schemaSet)
-            System.out.println(i);
-
-    } // end getSchemas()
+//    private static void getSchemas(Element root) {
+//
+//        Namespace xsiNamespace = root.getNamespace();
+//
+//        System.out.println("Root Namespace: " + root.getNamespace());
+//        System.out.println("SchemaNamespace: " + schemaNamespace);
+//
+//        List<Attribute> rootAttrs = root.getAttributes();
+//        for (int i=0; i<rootAttrs.size(); i++) {
+//            if (rootAttrs.get(i).getNamespacePrefix().equals("xsi"))
+//                xsiNamespace = rootAttrs.get(i).getNamespace();
+//            System.out.println(rootAttrs.get(i).getNamespace() + "  " + rootAttrs.get(i).getName());
+//        }
+//
+//        String[] schemas = root.getAttributeValue("schemaLocation", xsiNamespace).split(" ");
+//
+//        Set<String> schemaSet = new HashSet<>(Arrays.asList(schemas));
+//
+//        System.out.println("Now for my final trick!");
+//
+//        for (String i : schemaSet)
+//            System.out.println(i);
+//
+//    } // end getSchemas()
 
 } // end main()

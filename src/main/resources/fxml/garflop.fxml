@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox
+        fx:id="vbox"
+        prefHeight="400.0" prefWidth="640.0"
+        fx:controller="garflop.FXMLDocumentController"
+        xmlns="http://javafx.com/javafx/8.0.171"
+        xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <MenuBar VBox.vgrow="NEVER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <!--<MenuItem mnemonicParsing="false" text="Say Hello…"-->
+                                  <!--onAction="#"/>-->
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Quit"
+                                  onAction="#handleExitAction"/>
+                    </items>
+                </Menu>
+
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+                    </items>
+                </Menu>
+            </menus>
+
+        </MenuBar>
+
+        <Button
+                fx:id="btn_openGPX"
+                text="Open GPX File.."
+                onAction="#handleOpenGPXFile"
+        />
+
+    </children>
+
+</VBox>

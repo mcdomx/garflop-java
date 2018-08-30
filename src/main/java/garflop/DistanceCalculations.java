@@ -13,8 +13,11 @@ public class DistanceCalculations {
         return totalDistanceInMeters( points )/1000;
     }
 
+    public static double ptDistInMeters ( Point pt2, Point pt1 ) {
+        return dist(pt2, pt1);
+    }
 
-    private static double totalDistanceInMeters ( List<Point> points ) {
+    public static double totalDistanceInMeters ( List<Point> points ) {
         return IntStream.range(1, points.size())
                         .mapToDouble((i) -> dist(points.get(i), points.get(i-1)))
                         .sum();
