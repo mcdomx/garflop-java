@@ -1,6 +1,6 @@
 package garflop;
 
-import com.sun.tools.javac.util.Pair;
+import javafx.util.Pair;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -27,7 +27,7 @@ public class ElevationChart {
         int numPts = e_pts.size()-1;
         for ( int i = 0 ; i <= numPts ; i++ ) {
             elevationSeries.getData()
-                    .add(new XYChart.Data(i , e_pts.get(i).snd));
+                    .add(new XYChart.Data(i , e_pts.get(i).getValue()));
         }
 
         this.areaChart.getData().add(elevationSeries);

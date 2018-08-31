@@ -1,7 +1,8 @@
 package garflop;
 
 import garflop.DistanceCalculations;
-import com.sun.tools.javac.util.Pair;
+import javafx.util.Pair;
+
 
 import java.text.DecimalFormat;
 import java.time.Duration;
