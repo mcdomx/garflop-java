@@ -12,3 +12,14 @@
 .chart-area-symbol {
     -fx-background-color: null, null;
     }
+
+.statHeader {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-padding: 5;
+}
+
+.statBox {
+    -fx-background-radius: 5;
+}
+

@@ -5,8 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
+import javafx.scene.Node;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.control.Label;
+import javafx.scene.effect.BlendMode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -36,14 +39,18 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleOpenGPXFile() {
         Stage stage = Main.getPrimaryStage();
-        final FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().addAll(
-          new FileChooser.ExtensionFilter("GPX File", "*.gpx")
-        );
-        fileChooser.setInitialDirectory(
-                new File(System.getProperty("user.home"))
-        );
-        File file = fileChooser.showOpenDialog(stage);
+
+
+            final FileChooser fileChooser = new FileChooser();
+            fileChooser.getExtensionFilters().addAll(
+              new FileChooser.ExtensionFilter("GPX File", "*.gpx")
+            );
+            fileChooser.setInitialDirectory(
+                    new File(System.getProperty("user.home"))
+            );
+            File file = fileChooser.showOpenDialog(stage);
+
+
         if (file != null) {
             Main.processFile(file);
             drawElevationChart();
@@ -62,29 +69,33 @@ public class FXMLDocumentController implements Initializable {
 
     private void drawStatistics(){
         statGrid = new GridPane();
+        statGrid.setId("statGrid");
         statGrid.setAlignment(Pos.BOTTOM_CENTER);
         statGrid.setVgap(10);
         statGrid.setHgap(10);
         statGrid.setPadding(new Insets(25,25,25,25));
+        statGrid.setGridLinesVisible(true);
 
         //Heading
-        HBox hBoxHeading = new HBox();
         Label lblHeading = new Label();
         lblHeading.setText("Ride Statistics");
-        hBoxHeading.getChildren().add(lblHeading);
-        statGrid.add(hBoxHeading,0,0);
+        makeHeader(lblHeading);
+        Node lblHbox = wrapInHbox(lblHeading);
+        makeHeader(lblHbox);
+        addToGrid(statGrid,lblHbox,0,0);
 
 
         //Start Time
-        addStatRow(statGrid, 1,
-                "End Time", 0,
-                () -> RoutePoints.getFormattedStartTime(), 1);
+        Node startTime = makeStatBox("Start Time", () -> RoutePoints.getFormattedStartTime());
+        statGrid.add(startTime,0,1);
+//        addStatRow(statGrid, 1,
+//                "Start Time", 0,
+//                () -> RoutePoints.getFormattedStartTime(), 1);
 
         //End Time
         addStatRow(statGrid, 2,
                 "End Time", 0,
                 () -> RoutePoints.getFormattedEndTime(), 1);
-
 
         //Elapsed Ride Time
         addStatRow(statGrid, 3,
@@ -138,6 +149,8 @@ public class FXMLDocumentController implements Initializable {
                 () -> Cadence.getMaxCadence(), 3);
 
 
+
+
         vbox.getChildren().add(statGrid);
 
     }
@@ -146,14 +159,60 @@ public class FXMLDocumentController implements Initializable {
 
         //Title
         Label lblTitle = new Label();
+        makeHeader(lblTitle);
         lblTitle.setText(title);
         grid.add(lblTitle, titleCol, row);
 
         //Value
         Label lblValue = new Label();
+        lblValue.getStyleClass().add("statValue");
         lblValue.setText(valFunc.get());
         grid.add(lblValue, valueCol, row);
 
+    }
+
+    private static Node makeStatBox(String title, Supplier<String> valFunc) {
+
+        //statBox
+        GridPane statBox = new GridPane();
+        statBox.getStyleClass().add("statBox");
+
+
+        //Title
+        Label lblTitle = new Label();
+        makeHeader(lblTitle);
+        lblTitle.setText(title);
+        Node lblHBox = wrapInHbox(lblTitle);
+        makeHeader(lblHBox);
+        statBox.add(lblHBox,0,0);
+
+        //Value
+        Label lblValue = new Label();
+        lblValue.getStyleClass().add("statValue");
+        lblValue.setText(valFunc.get());
+        statBox.add(lblValue,0,1);
+
+        return statBox;
+
+    }
+
+    private static Node wrapInHbox (Node node) {
+        HBox newHBox = new HBox();
+        newHBox.getChildren().add(node);
+        newHBox.setAlignment(Pos.CENTER);
+        return newHBox;
+    }
+
+    private static void makeHeader (Node node) {
+        GridPane.setMargin(node, new Insets(2,2,2,2));
+        GridPane.setFillHeight(node, true);
+
+        node.getStyleClass().add("statHeader");
+//        node.setBlendMode(BlendMode.DIFFERENCE);
+    }
+
+    private static void addToGrid (GridPane grid, Node node, int col, int row) {
+        grid.add(node, col, row, 6 ,1);
     }
 
     @Override

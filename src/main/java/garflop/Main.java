@@ -2,9 +2,6 @@ package garflop;
 
 
 import java.io.*;
-import java.net.URI;
-import java.net.URL;
-import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -16,15 +13,10 @@ import static garflop.RoutePoints.getPoints;
 import static garflop.RoutePoints.resetRoutePoints;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
 
 import org.jdom.*;
 import org.jdom.filter.ElementFilter;
