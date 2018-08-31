@@ -1,0 +1,14 @@
+// JavaFX reference guide
+// docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html
+
+.button {
+    -fx-text-fill:black;
+    -fx-background-color:linear-gradient(white,#61a2b1);
+    -fx-effect: dropshadow(gaussian, grey, 5, 0.1, 2, 2);
+}
+
+
+
+.chart-area-symbol {
+    -fx-background-color: null, null;
+    }

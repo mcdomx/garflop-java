@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2262833d-21ce-4373-8250-cd069a8c38f8" name="Default Changelist" comment="working on creating mapped route">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/garflop/ElevationChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/garflop/ElevationChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/garflop/RoutePoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/garflop/RoutePoints.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/garflop/ElevationChart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/garflop/ElevationChart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/garflop/RoutePoints.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/garflop/RoutePoints.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/garflop_java-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-garflop.garflopTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/garflop.garflopTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/garflop/garflopTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/garflop.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/garflop.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -79,24 +65,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="css" value="27" />
           <entry key="java" value="945" />
           <entry key="xml" value="48" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="CSS" value="27" />
           <entry key="JAVA" value="945" />
           <entry key="XML" value="48" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="css" value="1" />
           <entry key="java" value="3" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="CSS" value="1" />
           <entry key="JAVA" value="3" />
           <entry key="XML" value="1" />
         </counts>
@@ -180,14 +170,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/garflop/ElevationChart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="26" column="36" lean-forward="true" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+            <state relative-caret-position="415">
+              <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/garflop.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -196,7 +195,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/garflop/RoutePoints.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1274">
-              <caret line="4" lean-forward="true" selection-start-line="3" selection-end-line="4" />
+              <caret line="4" selection-start-line="3" selection-end-line="4" />
               <folding>
                 <element signature="method#getCurrentRoute#0;class#RoutePoints#0" expanded="true" />
               </folding>
@@ -271,6 +270,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/garflop/RoutePoints.java" />
         <option value="$PROJECT_DIR$/src/main/java/garflop/ElevationChart.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/garflop.css" />
       </list>
     </option>
   </component>
@@ -367,6 +367,11 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="fxml" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="garflop_java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="garflop-java" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="garflop_java" type="b2602c69:ProjectViewProjectNode" />
@@ -521,6 +526,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="117" y="38" width="1308" height="893" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31674567" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -680,9 +686,6 @@
     <entry file="file://$PROJECT_DIR$/webpage/routePoints.JSON" />
     <entry file="file://$PROJECT_DIR$/webpage/routemap.html" />
     <entry file="file://$PROJECT_DIR$/webpage/routemap.js" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/garflop.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/target/classes/fxml/garflop.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor" />
@@ -799,7 +802,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/garflop/RoutePoints.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1274">
-          <caret line="4" lean-forward="true" selection-start-line="3" selection-end-line="4" />
+          <caret line="4" selection-start-line="3" selection-end-line="4" />
           <folding>
             <element signature="method#getCurrentRoute#0;class#RoutePoints#0" expanded="true" />
           </folding>
@@ -808,11 +811,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/garflop/ElevationChart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="26" column="36" lean-forward="true" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+        <state relative-caret-position="415">
+          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/garflop.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
         </state>
       </provider>
     </entry>
