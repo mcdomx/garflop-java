@@ -69,6 +69,17 @@ public class RoutePoints {
         points.add(point);
     }
 
+    public static List<Pair<Double, Double>> getLatLonPoints() {
+        //array with lat and lon point pair for each array element
+        List<Pair<Double, Double>> latlon_pts = new ArrayList<>();
+
+        for (Point p : points) {
+            latlon_pts.add(new Pair<>(p.getLat(), p.getLon()));
+        }
+
+        return latlon_pts;
+    }
+
     public static List<Pair<Double, Double>> getElevationPoints(int maxPoints) {
 
         //e_pts holds the points in a route that mark elevation points
