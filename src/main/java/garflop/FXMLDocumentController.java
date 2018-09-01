@@ -71,10 +71,10 @@ public class FXMLDocumentController implements Initializable {
         statGrid = new GridPane();
         statGrid.setId("statGrid");
         statGrid.setAlignment(Pos.BOTTOM_CENTER);
-        statGrid.setVgap(10);
-        statGrid.setHgap(10);
-        statGrid.setPadding(new Insets(25,25,25,25));
-        statGrid.setGridLinesVisible(true);
+        statGrid.setVgap(5);
+        statGrid.setHgap(5);
+        statGrid.setPadding(new Insets(10,10,10,10));
+//        statGrid.setGridLinesVisible(true);
 
         //Heading
         Label lblHeading = new Label();
@@ -84,98 +84,82 @@ public class FXMLDocumentController implements Initializable {
         makeHeader(lblHbox);
         addToGrid(statGrid,lblHbox,0,0);
 
-
         //Start Time
         Node startTime = makeStatBox("Start Time", () -> RoutePoints.getFormattedStartTime());
         statGrid.add(startTime,0,1);
-//        addStatRow(statGrid, 1,
-//                "Start Time", 0,
-//                () -> RoutePoints.getFormattedStartTime(), 1);
 
         //End Time
-        addStatRow(statGrid, 2,
-                "End Time", 0,
-                () -> RoutePoints.getFormattedEndTime(), 1);
+        Node endTime = makeStatBox("End Time", () -> RoutePoints.getFormattedEndTime());
+        statGrid.add(endTime,1,1);
 
         //Elapsed Ride Time
-        addStatRow(statGrid, 3,
-                "Elapsed Ride Time", 0,
-                () -> RoutePoints.getElapsedRideTime(), 1);
+        Node rideTime = makeStatBox("Elapsed Time", () -> RoutePoints.getElapsedRideTime());
+        statGrid.add(rideTime,0,2);
+
 
         //Distance
-        addStatRow(statGrid, 4,
-                "Distace (KM)", 0,
-                () -> RoutePoints.getDistanceInKM(), 1);
+        Node rideDist = makeStatBox("Distance", () -> RoutePoints.getDistanceInKM());
+        statGrid.add(rideDist,1,2);
 
         //Rate
-        addStatRow(statGrid, 5,
-                "Rate (KM/hr)", 0,
-                () -> RoutePoints.getRate(), 1);
+        Node rideRate = makeStatBox("Rate", () -> RoutePoints.getRate());
+        statGrid.add(rideRate,2,2);
 
         //HeartRate
-        addStatRow(statGrid, 6,
-                "Avg HR", 0,
-                () -> HeartRate.getAvgHR(), 1);
-        addStatRow(statGrid, 6,
-                "Max HR", 2,
-                () -> HeartRate.getMaxHR(), 3);
+        Node avgHR = makeStatBox("Avg HR", () -> HeartRate.getAvgHR());
+        statGrid.add(avgHR,0,3);
 
+        Node maxHR = makeStatBox("Max HR", () -> HeartRate.getMaxHR());
+        statGrid.add(maxHR,1,3);
 
         //Climb and Descent
-        addStatRow(statGrid, 7,
-                "Climb", 0,
-                () -> Elevation.getClimb(), 1);
-        addStatRow(statGrid, 7,
-                "Descent", 2,
-                () -> Elevation.getDescent(), 3);
+        Node climb = makeStatBox("Climb", () -> Elevation.getClimb());
+        statGrid.add(climb,0,4);
+
+        Node descent = makeStatBox("Descent", () -> Elevation.getDescent());
+        statGrid.add(descent,1,4);
 
         //Power
-        addStatRow(statGrid, 8,
-                "Avg Power", 0,
-                () -> Power.getAvgPower(), 1);
-        addStatRow(statGrid, 8,
-                "Avg Non-Zero Power", 2,
-                () -> Power.getAvgPowerNonZero(), 3);
-        addStatRow(statGrid, 8,
-                "Max Power", 4,
-                () -> Power.getMaxPower(), 5);
+        Node avgPwr = makeStatBox("Avg Power", () -> Power.getAvgPower());
+        statGrid.add(avgPwr,0,5);
+//        addStatRow(statGrid, 8,
+//                "Avg Power", 0,
+//                () -> Power.getAvgPower(), 1);
+        Node avgNZeroPwr = makeStatBox("Avg Non-Zero Power", () -> Power.getAvgPowerNonZero());
+        statGrid.add(avgNZeroPwr,1,5);
+//        addStatRow(statGrid, 8,
+//                "Avg Non-Zero Power", 2,
+//                () -> Power.getAvgPowerNonZero(), 3);
+        Node maxPwr = makeStatBox("Max Power", () -> Power.getMaxPower());
+        statGrid.add(maxPwr,2,5);
+//        addStatRow(statGrid, 8,
+//                "Max Power", 4,
+//                () -> Power.getMaxPower(), 5);
 
         //Cadence
-        addStatRow(statGrid, 9,
-                "Avg Cadence", 0,
-                () -> Cadence.getAvgCadence(), 1);
-        addStatRow(statGrid, 9,
-                "Max Cadence", 2,
-                () -> Cadence.getMaxCadence(), 3);
-
-
+        Node avgCad = makeStatBox("Avg Cadence", () -> Cadence.getAvgCadence());
+        statGrid.add(avgCad,0,6);
+//        addStatRow(statGrid, 9,
+//                "Avg Cadence", 0,
+//                () -> Cadence.getAvgCadence(), 1);
+        Node maxCad = makeStatBox("Max Cadence", () -> Cadence.getMaxCadence());
+        statGrid.add(maxCad,1,6);
+//        addStatRow(statGrid, 9,
+//                "Max Cadence", 2,
+//                () -> Cadence.getMaxCadence(), 3);
 
 
         vbox.getChildren().add(statGrid);
 
     }
 
-    private static void addStatRow(GridPane grid, int row, String title, int titleCol, Supplier<String> valFunc, int valueCol) {
-
-        //Title
-        Label lblTitle = new Label();
-        makeHeader(lblTitle);
-        lblTitle.setText(title);
-        grid.add(lblTitle, titleCol, row);
-
-        //Value
-        Label lblValue = new Label();
-        lblValue.getStyleClass().add("statValue");
-        lblValue.setText(valFunc.get());
-        grid.add(lblValue, valueCol, row);
-
-    }
 
     private static Node makeStatBox(String title, Supplier<String> valFunc) {
 
         //statBox
         GridPane statBox = new GridPane();
         statBox.getStyleClass().add("statBox");
+        statBox.setAlignment(Pos.CENTER);
 
 
         //Title
@@ -188,7 +172,7 @@ public class FXMLDocumentController implements Initializable {
 
         //Value
         Label lblValue = new Label();
-        lblValue.getStyleClass().add("statValue");
+        makeValue(lblValue);
         lblValue.setText(valFunc.get());
         statBox.add(lblValue,0,1);
 
@@ -203,12 +187,20 @@ public class FXMLDocumentController implements Initializable {
         return newHBox;
     }
 
-    private static void makeHeader (Node node) {
-        GridPane.setMargin(node, new Insets(2,2,2,2));
-        GridPane.setFillHeight(node, true);
 
+
+    private static void makeHeader (Node node) {
+        GridPane.setMargin(node, new Insets(1,1,1,1));
+        GridPane.setFillHeight(node, true);
+        GridPane.setFillWidth(node, true);
         node.getStyleClass().add("statHeader");
-//        node.setBlendMode(BlendMode.DIFFERENCE);
+    }
+
+    private static void makeValue (Node node) {
+        GridPane.setMargin(node, new Insets(1,1,1,1));
+        GridPane.setFillHeight(node, true);
+        GridPane.setFillWidth(node, true);
+        node.getStyleClass().add("statValue");
     }
 
     private static void addToGrid (GridPane grid, Node node, int col, int row) {
