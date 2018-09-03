@@ -2,18 +2,32 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
+  <style>
+    #map {
+        height: 100%;
+        <!--height: 210px;-->
+    }
 
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
 </head>
-<body style="height: 100%">
+<body>
 
-  <!-- MAP -->
-  <div id="map" style="height: 210px">
+    <!-- MAP -->
+    <div id="map">
     Loading map ....
-  </div>
+    </div>
 
-<script src="map.js"></script>
-<script id="map_source" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq7K_jXuCBe3m3oTvgKaVh4w3kxn0FzaA&callback=initMap"
-        async defer></script>
+    <script src="map.js"></script>
+
+    <script id="map_source"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq7K_jXuCBe3m3oTvgKaVh4w3kxn0FzaA&callback=initMap"
+            async defer>
+    </script>
 
 
 </body>

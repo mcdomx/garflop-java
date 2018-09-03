@@ -35,6 +35,8 @@ public class FXMLDocumentController implements Initializable {
     private AreaChart elevChart;
     VBox statGrid;
 
+
+
     @FXML
     private VBox vbox;
 
@@ -58,32 +60,32 @@ public class FXMLDocumentController implements Initializable {
 
         if (file != null) {
             Main.processFile(file);
+
             drawMap();
 
             double dist = RoutePoints.getDistance();
             drawElevationChart(dist);
+
             drawStatistics();
         }
     }
 
+    //    http://fxexperience.com/2011/05/maps-in-javafx-2-0/
+    static { // use system proxy settings when standalone application
+        System.setProperty("java.net.useSystemProxies", "true");
+    }
 
-//    https://blogs.oracle.com/java/javafx-webview-overview
+
+    //    https://blogs.oracle.com/java/javafx-webview-overview
     private void drawMap() {
+
         if (browser != null)
             vbox.getChildren().remove(browser);
 
         try {
             WebView webView = new WebView();
             WebEngine webEngine = webView.getEngine();
-            File file = new File(getClass().getResource("/html/map.html").toString());
-            String url = file.toString();
-            System.out.println("URL: " + url);
-            webEngine.load(url);
-            browser = new HBox(5);
-            browser.setMinHeight(225);
-            browser.getChildren().add(webView);
-            vbox.getChildren().add(browser);
-
+            webEngine.load(getClass().getResource("/html/map.html").toString());
             //When page is loaded, connect the JavaApp class with the webEngine
             webEngine.getLoadWorker().stateProperty().addListener(
                     (ObservableValue<? extends State> ov, State oldState, Worker.State newState) -> {
@@ -93,6 +95,11 @@ public class FXMLDocumentController implements Initializable {
                         }
                     }
                     );
+
+
+            browser = new HBox();
+            browser.getChildren().add(webView);
+            vbox.getChildren().add(browser);
 
         } catch (Exception e) {
             System.out.println("Error creating html file.");

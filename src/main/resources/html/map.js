@@ -28,8 +28,8 @@ function initMap() {
     for (p in response) {
 
     var point = new google.maps.LatLng(response[p].key, response[p].value);
-    route_points.push(point);
-    map_bounds.extend(point);
+        route_points.push(point);
+        map_bounds.extend(point);
     }
 
     // create a polygon of the route
@@ -39,7 +39,12 @@ function initMap() {
     });
 
     // create new map object
-    var mapOptions = { mapTypeId: 'terrain' };
+    var mapOptions = {
+        mapTypeId: 'terrain',
+        backgroundColor: 'black',
+//        disableDefaultUI: true
+        };
+
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
     // set the polygon on the map and set the bounds to match
