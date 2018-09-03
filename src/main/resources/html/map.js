@@ -1,7 +1,7 @@
 // ########################  begin DOMContentLoaded ########################
 document.addEventListener('DOMContentLoaded', () => {
   // wait till page loads before setting up javascript elements
-
+    document.getElementById("map").innerHTML = "Loading map....";
 
 });
 // ########################  end DOMContentLoaded ########################
@@ -14,7 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // returns a dictionary of points which are added to the map
 function initMap() {
 
-    const response = getLatLonPoints();
+    //app references the JavaApp class in document controller.
+    //getlatlonpoints is a function in the JavaApp class.
+    const response = JSON.parse(app.getLatLonPoints());
+//    document.getElementById("points").innerHTML = response;
+
     var route_points = [];
     var map_bounds = new google.maps.LatLngBounds();
 
@@ -23,7 +27,7 @@ function initMap() {
     // then add the g_maps coordinate point to the route_points list
     for (p in response) {
 
-    var point = new google.maps.LatLng(response[p][0], response[p][1]);
+    var point = new google.maps.LatLng(response[p].key, response[p].value);
     route_points.push(point);
     map_bounds.extend(point);
     }
@@ -41,14 +45,6 @@ function initMap() {
     // set the polygon on the map and set the bounds to match
     route_drawing.setMap(map);
     map.fitBounds(map_bounds);
-
-    // Add route id to request sent to server
-    const data = new FormData();
-    data.append('route_id', route_id);
-
-    // Send request
-    get_gpx.send(data);
-    return false; // avoid sending the form and creating an HTTP POST request
 
 } // end initMap()
 

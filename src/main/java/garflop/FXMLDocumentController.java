@@ -1,5 +1,8 @@
 package garflop;
 
+import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Worker;
+import javafx.concurrent.Worker.State;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,19 +11,16 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import netscape.javascript.JSObject;
+import org.json.JSONArray;
 
 import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
+
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
@@ -28,10 +28,10 @@ import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
 import static java.lang.System.exit;
-import static java.lang.System.setOut;
 
 public class FXMLDocumentController implements Initializable {
 
+    private HBox browser;
     private AreaChart elevChart;
     VBox statGrid;
 
@@ -59,47 +59,68 @@ public class FXMLDocumentController implements Initializable {
         if (file != null) {
             Main.processFile(file);
             drawMap();
-            drawElevationChart();
+
+            double dist = RoutePoints.getDistance();
+            drawElevationChart(dist);
             drawStatistics();
         }
     }
 
+
 //    https://blogs.oracle.com/java/javafx-webview-overview
     private void drawMap() {
+        if (browser != null)
+            vbox.getChildren().remove(browser);
+
         try {
-            WebView browser = new WebView();
-            WebEngine webEngine = browser.getEngine();
+            WebView webView = new WebView();
+            WebEngine webEngine = webView.getEngine();
             File file = new File(getClass().getResource("/html/map.html").toString());
             String url = file.toString();
             System.out.println("URL: " + url);
             webEngine.load(url);
-            HBox browserHbox = new HBox(5);
-            browserHbox.setPadding(new Insets(10));
-            browserHbox.getChildren().add(browser);
-            vbox.getChildren().add(browserHbox);
+            browser = new HBox(5);
+            browser.setMinHeight(225);
+            browser.getChildren().add(webView);
+            vbox.getChildren().add(browser);
 
-//            JSObject getPts = (JSObject) webEngine.executeScript("getLatLonPoints");
-//            getPts.setMember("app", new JavaApp());
-
+            //When page is loaded, connect the JavaApp class with the webEngine
+            webEngine.getLoadWorker().stateProperty().addListener(
+                    (ObservableValue<? extends State> ov, State oldState, Worker.State newState) -> {
+                        if (newState == State.SUCCEEDED) {
+                            JSObject win = (JSObject) webEngine.executeScript("window");
+                            win.setMember("app", new JavaApp());
+                        }
+                    }
+                    );
 
         } catch (Exception e) {
             System.out.println("Error creating html file.");
 
         }
 
+    } // end drawMap()
+
+    // JavaScript interface object
+    public class JavaApp {
+        public JSONArray getLatLonPoints() {
+            return RoutePoints.getLatLonPoints();
+        }
     }
 
-    private void drawElevationChart() {
+
+    private void drawElevationChart(double dist) {
         if (elevChart != null)
             vbox.getChildren().remove(elevChart);
-        if (statGrid != null)
-            vbox.getChildren().remove(statGrid);
-        elevChart = new ElevationChart().getAreaChart();
+        elevChart = new ElevationChart(dist).getAreaChart();
         vbox.getChildren().add(elevChart);
     }
 
 
     private void drawStatistics(){
+        if (statGrid != null)
+            vbox.getChildren().remove(statGrid);
+
         double maxWidth = 400;
         statGrid = new VBox(5);
         statGrid.setAlignment(Pos.BOTTOM_CENTER);
@@ -170,6 +191,8 @@ public class FXMLDocumentController implements Initializable {
                 ),
                         maxWidth)
         );
+
+//        statGrid.setMinSize(win_width, win_height*.3);
 
         vbox.getChildren().add(statGrid);
 

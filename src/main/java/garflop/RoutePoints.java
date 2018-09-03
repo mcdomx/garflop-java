@@ -2,6 +2,7 @@ package garflop;
 
 import garflop.DistanceCalculations;
 import javafx.util.Pair;
+import org.json.JSONArray;
 
 
 import java.text.DecimalFormat;
@@ -54,6 +55,11 @@ public class RoutePoints {
         return (Double.valueOf(new DecimalFormat("#.#").format(ttlDistance))).toString();
     }
 
+    public static double getDistance () {
+        return DistanceCalculations.totalDistanceInKM(getPoints());
+    }
+
+
     public static String getRate () {
         int offset = ZonedDateTime.now().getOffset().getTotalSeconds()/60/60;
         LocalDateTime startTime = LocalDateTime.ofEpochSecond(getEpochStartTime(), 0, ZoneOffset.ofHours(offset));
@@ -69,7 +75,7 @@ public class RoutePoints {
         points.add(point);
     }
 
-    public static List<Pair<Double, Double>> getLatLonPoints() {
+    public static JSONArray getLatLonPoints() {
         //array with lat and lon point pair for each array element
         List<Pair<Double, Double>> latlon_pts = new ArrayList<>();
 
@@ -77,7 +83,8 @@ public class RoutePoints {
             latlon_pts.add(new Pair<>(p.getLat(), p.getLon()));
         }
 
-        return latlon_pts;
+        JSONArray latlon_json = new JSONArray(latlon_pts);
+        return latlon_json;
     }
 
     public static List<Pair<Double, Double>> getElevationPoints(int maxPoints) {
