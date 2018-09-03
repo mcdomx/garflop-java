@@ -41,11 +41,13 @@ function initMap() {
     // create new map object
     var mapOptions = {
         mapTypeId: 'terrain',
-        backgroundColor: 'black',
-//        disableDefaultUI: true
+        fullscreenControl: false,
+//        backgroundColor: 'black',
+//        disableDefaultUI: false
         };
 
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
 
     // set the polygon on the map and set the bounds to match
     route_drawing.setMap(map);

@@ -87,19 +87,22 @@ public class FXMLDocumentController implements Initializable {
             WebEngine webEngine = webView.getEngine();
             webEngine.load(getClass().getResource("/html/map.html").toString());
             //When page is loaded, connect the JavaApp class with the webEngine
+            System.out.println("loaded map.html");
             webEngine.getLoadWorker().stateProperty().addListener(
                     (ObservableValue<? extends State> ov, State oldState, Worker.State newState) -> {
                         if (newState == State.SUCCEEDED) {
                             JSObject win = (JSObject) webEngine.executeScript("window");
                             win.setMember("app", new JavaApp());
+                            System.out.println("executed listener");
                         }
                     }
                     );
-
+            System.out.println("set listener");
 
             browser = new HBox();
             browser.getChildren().add(webView);
             vbox.getChildren().add(browser);
+            System.out.println("added browser to window");
 
         } catch (Exception e) {
             System.out.println("Error creating html file.");
