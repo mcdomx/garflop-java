@@ -40,14 +40,18 @@ function initMap() {
 
     // create new map object
     var mapOptions = {
-//        mapTypeId: 'terrain',
+        mapTypeId: 'terrain',
         fullscreenControl: false,
+        streetViewControl: false,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+          }
 //        backgroundColor: 'black',
 //        disableDefaultUI: false
         };
 
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    map.mapOptions.mapTypeId = "terrain";
+
 
     // set the polygon on the map and set the bounds to match
     route_drawing.setMap(map);

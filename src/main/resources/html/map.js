@@ -42,6 +42,10 @@ function initMap() {
     var mapOptions = {
         mapTypeId: 'terrain',
         fullscreenControl: false,
+        streetViewControl: false,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+          }
 //        backgroundColor: 'black',
 //        disableDefaultUI: false
         };

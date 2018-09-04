@@ -31,7 +31,7 @@ import static java.lang.System.exit;
 
 public class FXMLDocumentController implements Initializable {
 
-    private HBox browser;
+    private HBox map;
     private AreaChart elevChart;
     VBox statGrid;
 
@@ -79,39 +79,17 @@ public class FXMLDocumentController implements Initializable {
     //    https://blogs.oracle.com/java/javafx-webview-overview
     private void drawMap() {
 
-        if (browser != null)
-            vbox.getChildren().remove(browser);
+        if (map != null)
+            vbox.getChildren().remove(map);
 
-        try {
-            WebView webView = new WebView();
-            WebEngine webEngine = webView.getEngine();
-            webEngine.load(getClass().getResource("/html/map.html").toString());
-            //When page is loaded, connect the JavaApp class with the webEngine
-            System.out.println("loaded map.html");
-            webEngine.getLoadWorker().stateProperty().addListener(
-                    (ObservableValue<? extends State> ov, State oldState, Worker.State newState) -> {
-                        if (newState == State.SUCCEEDED) {
-                            JSObject win = (JSObject) webEngine.executeScript("window");
-                            win.setMember("app", new JavaApp());
-                            System.out.println("executed listener");
-                        }
-                    }
-                    );
-            System.out.println("set listener");
+        map = new GoogleMap();
 
-            browser = new HBox();
-            browser.getChildren().add(webView);
-            vbox.getChildren().add(browser);
-            System.out.println("added browser to window");
-
-        } catch (Exception e) {
-            System.out.println("Error creating html file.");
-
-        }
+        vbox.getChildren().add(map);
 
     } // end drawMap()
 
-    // JavaScript interface object
+    // JavaScript interface object. All methods in this object are available
+    // to javascript file.
     public class JavaApp {
         public JSONArray getLatLonPoints() {
             return RoutePoints.getLatLonPoints();
